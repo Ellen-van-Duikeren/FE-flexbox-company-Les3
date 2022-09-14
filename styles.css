@@ -1,3 +1,7 @@
+/*flex-basis inner-container nog aanpassen aan 1200px;*/
+/*nog toevoegen jump links vanuit navigatie*/
+
+
 /*////////////////////////
     Table of Contents
     1. Global Styles
@@ -13,24 +17,223 @@
 ////////////////////////*/
 
 /* ------------------------------- 1. Global Styles -------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /*background-color: lightblue;*/
 }
 
+
 /* ------------------------------- 2. Typography ----------------------------------- */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+}
 
 /* ------------------------------- 3. Layout --------------------------------------- */
 
 /* --------------- 3.1 Reusables ----------------------- */
+
+/*https://coolors.co/d6d9ce-f3dad8-f4c3c2-f1b5cb-e88eed*/
+:root {
+    --paars: #5722CD;
+    --blauw: #4B49E8;
+    --lichtpaars: #F2F0FF;
+    --roze: #ED4385;
+    --zwart: #0C0C0C;
+    --lichtgrijs: #F3F6F9;
+    --grijs: #7A7A7A
+    /*    Zwart #0C0C0C (voor standaard tekst);*/
+    /*    Lichtpaars #F2F0FF (voor de grote zwevende woorden, zoals "hello" en "services") Uitzonderingen:*/
+    /*    Lichtgrijs #F3F6F9 (voor de achtergrond van de projecten)*/
+    /*    Grijs #7A7A7A (voor de service-tegel tekst);*/
+}
+
+/*voorbeeld gebruiken var: body { background-color: var(--blue); }*/
+
+.outer-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis:70%;
+    /*background-color: red;*/
+    align-items: center;
+}
 
 /* --------------- 3.2 Other --------------------------- */
 
 /* ------------------------------- 4. Areas ---------------------------------------- */
 
 /* --------------- 4.1 Header ------------------------- */
+header {
+    background: rgb(75, 73, 232);
+    background: linear-gradient(90deg, rgba(75, 73, 232, 1) 0%, rgba(87, 34, 205, 1) 100%);
+    color: white;
+    position: relative;
+    padding-bottom: 110px;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.text-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+
+.text-header h1 {
+    padding-bottom: 10px;
+}
+
+.text-header h3 {
+    padding-bottom: 20px;
+}
+
+.text-header button {
+    background-color: var(--roze);
+    padding: 10px 25px;
+    border: 2px solid var(--roze);
+    border-radius: 30px;
+    text-transform: uppercase;
+    color: white;
+    font-size: 0.5em;
+    box-shadow: 2px 2px 4px var(--grijs);
+}
+
+header img {
+    width: 30px;
+    position: absolute;
+    top: 240px;
+}
+
 
 /* --------------- 4.2 Introduction ------------------- */
+.introduction {
+    background-color: var(--lichtgrijs);
+    color: var(--blauw);
+    text-align: center;
+    padding: 30px 0;
+}
+
+.introduction h2 {
+    padding: 10px;
+}
+
+.introduction p {
+    padding-top: 40px;
+    color: var(--zwart);
+    font-size: 0.8em;
+}
+
+/* --------------- 4.3 Projecten ------------------- */
+
+.projecten-img {
+    width: 50vw;
+    min-width: 300px;
+}
+
+.box1 {
+    /*border: 5px purple solid;*/
+    gap: 30px;
+
+}
+
+.box2 {
+    /*border: 5px green solid;*/
+    align-items: flex-start;
+    padding: 20px;
+    flex-shrink: 2;
+
+}
+
+.the-other-way-around {
+    flex-direction: row-reverse;
+    padding-right: 60px;
+}
+
+.text-and-img {
+    padding-left: 60px;
+
+}
+
+
+.projecten .squiggle  {
+    width: 30px;
+    padding-bottom: 15px;
+}
+
+.projecten h3,
+.projecten p,
+.projecten a {
+    padding-bottom: 20px;
+}
+
+.projecten a {
+    text-transform: uppercase;
+    color: var(--paars);
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.5rem;
+}
+
+/* --------------- 4.4 Services ------------------- */
+.services {
+    background-color: white;
+    color: var(--paars);
+    grid-gap: 20px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    align-items: flex-start;
+    /*flex-grow: 0;*/
+    /*flex-shrink: 0;*/
+}
+
+.services-containers{
+    flex-basis: 300px;
+    border: 1px solid var(--paars);
+    align-items: flex-start;
+    padding: 20px;
+    box-shadow: 2px 4px 4px var(--lichtgrijs);
+}
+
+.services img {
+    width: 50px;
+    padding-bottom: 10px;
+}
+
+.services p {
+    padding-top: 10px;
+    color: var(--zwart);
+}
+
+
+
+/* --------------- 4.5 Footer ------------------- */
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
