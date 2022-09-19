@@ -11,9 +11,15 @@
     <div class="inner-container">
         <nav>
             <ul>
-                <li>Case Studies</li>
-                <li>Services</li>
-                <li>Contact Us</li>
+                <a href="#ref-projecten">
+                    <li>Case Studies</li>
+                </a>
+                <a href="#ref-services">
+                    <li>Services</li>
+                </a>
+                <a href="#ref-contact">
+                    <li>Contact Us</li>
+                </a>
             </ul>
         </nav>
 
@@ -35,15 +41,15 @@
             <h2>Rekupe is a digital agency in Los Angeles.</h2>
             <h2>We use strategic UX, SEO optimization and beautiful visual designs to help your business grow.</h2>
             <h2>We see every project as a fresh opportunity, pushing ourselves to create new digital experiences.</h2>
-            <p>Have a question? Click here to contact us!</p>
+            <p>Have a question? <span>Click here</span> to contact us!</p>
         </div>
     </section>
-    <!--3 projecten-->
 
-    <section class=" outer-container projecten">
+    <!--3 projecten-->
+    <section class=" outer-container projecten" id="ref-projecten">
         <div class="inner-container">
-            <div class="outer-container box1">
-                <div class="inner-container box2 ">
+            <div class="outer-container projecten-outer-container">
+                <div class="inner-container projecten-inner-container">
                     <h3>Rolling Stone</h3>
                     <img src="assets/squiggle_line.svg" alt="squiggle" class="squiggle">
                     <p>You know Rolling Stone. It’s the definitive voice in music, politics and culture. It’s a global
@@ -53,8 +59,8 @@
                 <img src="assets/work-image-01.jpeg" class="projecten-img">
             </div>
 
-            <div class="outer-container box1 the-other-way-around">
-                <div class="inner-container box2">
+            <div class="outer-container the-other-way-around projecten-outer-container">
+                <div class="inner-container projecten-inner-container">
                     <h3>Variety</h3>
                     <img src="assets/squiggle_line.svg" alt="squiggle" class="squiggle">
                     <p>Variety is an industry leader for breaking entertainment news, reviews and box office results
@@ -65,8 +71,8 @@
                 <img src="assets/work-image-02.jpeg" class="projecten-img">
             </div>
 
-            <div class="outer-container box1">
-                <div class="inner-container box2 text-and-img">
+            <div class="outer-container projecten-outer-container">
+                <div class="inner-container projecten-inner-container">
                     <h3>Worth</h3>
                     <img src="assets/squiggle_line.svg" alt="squiggle" class="squiggle">
                     <p> A global media platform connecting a community that embraces worth beyond wealth.</p>
@@ -140,13 +146,37 @@
 
 
 </main>
-
-
 <!--       contactform en footer-->
-<footer>
+<footer class="inner-container" id="ref-contact">
+    <div class="inner-container form-inner-container">
+        <h1>Let's work together</h1>
+        <p>Have a question? Need a quote? Let us know!</p>
+    </div>
+
+
+    <form class="inner-container">
+        <div class="form-padding">
+            <label for="name" class="label-name">Name</label><br>
+            <input type="text" id="name" name="name" placeholder="Name"><br>
+        </div>
+
+        <div class="form-padding">
+            <label for="email" class="label-name">Email</label><br>
+            <input type="text" id="email" name="email" placeholder="Email"><br>
+        </div>
+
+        <div class="form-padding">
+            <label for="message" class="label-name">Message</label><br>
+            <textarea id="message" name="message" rows="10" cols="50" placeholder="Message"></textarea><br>
+        </div>
+
+        <button type="submit" id="button">Send</button>
+    </form>
+
+    <div id="footer-text">
+        <p id="first-p">Business website opdracht &copy NOVI Hogeschool 2022</p>
+    </div>
 
 </footer>
-
-
 </body>
 </html>

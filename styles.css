@@ -1,6 +1,17 @@
 /*flex-basis inner-container nog aanpassen aan 1200px;*/
 /*nog toevoegen jump links vanuit navigatie*/
 
+.boxrood {
+    border: 5px red solid;
+}
+
+.boxblauw {
+    border: 5px blue solid;
+}
+
+.boxgroen {
+    border: 5px green solid;
+}
 
 /*////////////////////////
     Table of Contents
@@ -31,6 +42,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    font-size: 20px;
 }
 
 h1, h2, h3 {
@@ -49,7 +61,7 @@ h1, h2, h3 {
     --roze: #ED4385;
     --zwart: #0C0C0C;
     --lichtgrijs: #F3F6F9;
-    --grijs: #7A7A7A
+    --grijs: #7A7A7A;
     /*    Zwart #0C0C0C (voor standaard tekst);*/
     /*    Lichtpaars #F2F0FF (voor de grote zwevende woorden, zoals "hello" en "services") Uitzonderingen:*/
     /*    Lichtgrijs #F3F6F9 (voor de achtergrond van de projecten)*/
@@ -61,18 +73,17 @@ h1, h2, h3 {
 .outer-container {
     display: flex;
     flex-direction: row;
-    width: 100%;
-    align-items: center;
+    width: 100vw;
     justify-content: center;
+
 }
 
 .inner-container {
     display: flex;
     flex-direction: column;
-    flex-basis:70%;
-    /*background-color: red;*/
-    align-items: center;
+    flex-basis: 70%;
 }
+
 
 /* --------------- 3.2 Other --------------------------- */
 
@@ -89,13 +100,19 @@ header {
 
 nav {
     display: flex;
+    flex-direction: row;
     justify-content: flex-end;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    padding-top: 10px;
+    width: 110%;
+    font-size: 0.8em;
 }
 
 nav ul {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    flex-basis: 300px;
     list-style-type: none;
 }
 
@@ -104,7 +121,6 @@ nav ul {
     flex-direction: column;
     align-items: center;
     text-align: center;
-
 }
 
 .text-header h1 {
@@ -113,11 +129,12 @@ nav ul {
 
 .text-header h3 {
     padding-bottom: 20px;
+    font-weight: 400;
 }
 
 .text-header button {
     background-color: var(--roze);
-    padding: 10px 25px;
+    padding: 15px 25px;
     border: 2px solid var(--roze);
     border-radius: 30px;
     text-transform: uppercase;
@@ -129,20 +146,43 @@ nav ul {
 header img {
     width: 30px;
     position: absolute;
-    top: 240px;
+    bottom: 0;
+    left: calc(50% - 15px);
 }
 
+header a {
+    color: var(--lichtgrijs);
+    text-decoration: none;
+}
+
+/*.edger {*/
+/*    display: flex;*/
+/*    height: 50px;*/
+/*    width: 100%;*/
+/*    background: linear-gradient(to left, var(--paars), var(--blauw));*/
+/*    border: 3px solid green;*/
+/*    position: relative;*/
+/*}*/
+/*.edger::after {*/
+/*    content: "";*/
+/*    display: block;*/
+/*    width: 0;*/
+/*    height: 0;*/
+/*    border-right: 100vw solid transparent;*/
+/*    border-bottom: 50px solid white;*/
+/*}*/
 
 /* --------------- 4.2 Introduction ------------------- */
 .introduction {
     background-color: var(--lichtgrijs);
-    color: var(--blauw);
+    color: var(--paars);
     text-align: center;
     padding: 30px 0;
 }
 
 .introduction h2 {
     padding: 10px;
+    font-weight: 700;
 }
 
 .introduction p {
@@ -151,39 +191,39 @@ header img {
     font-size: 0.8em;
 }
 
+.introduction span {
+    color: var(--paars);
+    font-weight: 700;
+}
+
 /* --------------- 4.3 Projecten ------------------- */
 
+.projecten {
+    padding-top: 40px;
+}
+
 .projecten-img {
-    width: 50vw;
     min-width: 300px;
+    object-fit: cover;
 }
 
-.box1 {
-    /*border: 5px purple solid;*/
-    gap: 30px;
-
+.projecten-outer-container {
+    width: 90vw;
+    gap: 60px;
+    padding-bottom: 40px;
 }
 
-.box2 {
-    /*border: 5px green solid;*/
+.projecten-inner-container {
     align-items: flex-start;
-    padding: 20px;
-    flex-shrink: 2;
-
+    justify-content: center;
+    padding: 40px;
 }
 
 .the-other-way-around {
     flex-direction: row-reverse;
-    padding-right: 60px;
 }
 
-.text-and-img {
-    padding-left: 60px;
-
-}
-
-
-.projecten .squiggle  {
+.projecten .squiggle {
     width: 30px;
     padding-bottom: 15px;
 }
@@ -194,32 +234,39 @@ header img {
     padding-bottom: 20px;
 }
 
+.projecten h3 {
+    font-size: 1.7rem;
+}
+
+.projecten p {
+    font-size: 0.9rem;
+}
+
 .projecten a {
     text-transform: uppercase;
     color: var(--paars);
-    font-size: 0.8em;
+    font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.1rem;
 }
 
 /* --------------- 4.4 Services ------------------- */
 .services {
-    background-color: white;
+    background-color: whitesmoke;
     color: var(--paars);
-    grid-gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
     padding: 40px 20px;
-    align-items: flex-start;
     /*flex-grow: 0;*/
     /*flex-shrink: 0;*/
 }
 
-.services-containers{
-    flex-basis: 300px;
+.services-containers {
     border: 1px solid var(--paars);
     align-items: flex-start;
     padding: 20px;
     box-shadow: 2px 4px 4px var(--lichtgrijs);
+    flex-basis: 250px;
 }
 
 .services img {
@@ -230,10 +277,109 @@ header img {
 .services p {
     padding-top: 10px;
     color: var(--zwart);
+    font-size: 0.7rem;
 }
 
 
-
 /* --------------- 4.5 Footer ------------------- */
+footer {
+    background-color: var(--blauw);
+    color: var(--lichtgrijs);
+    padding: 30px 0 0 0;
+    align-items: center;
+}
+
+.form-inner-container {
+    align-items: center;
+}
+
+footer h1 {
+    font-size: 2.5rem;
+    padding: 20px;
+}
+
+footer p {
+    font-size: 0.9rem;
+    padding-bottom: 20px;
+}
+
+form {
+    padding: 20px;
+    align-items: center;
+}
+
+.label-name {
+    font-size: 0.7rem;
+}
+
+#name, #email, #message {
+    font-size: 0.7rem;
+    padding: 16px;
+    width: 50vw;
+    border: 0px solid transparent;
+    border-radius: 2px;
+}
+
+form textarea {
+    font-size: 0.9em;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-padding {
+    padding: 10px;
+}
+
+#button {
+    background-color: var(--roze);
+    color: white;
+    text-transform: uppercase;
+    border: 0px solid transparent;
+    border-radius: 20px;
+    width: 120px;
+    padding: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 0.6rem;
+}
+
+#footer-text {
+    display: flex;
+    justify-content: center;
+    background-color: var(--zwart);
+    width: 100vw;
+    padding: 16px 0 0 0;
+}
+
+#footer-text p {
+    font-size: 0.7rem;
+}
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
+
+
+@media only screen and (max-width: 700px) {
+    body {
+        font-size: 12px;
+    }
+
+    .projecten-outer-container {
+        flex-wrap: wrap;
+    }
+
+    .projecten-inner-container {
+        align-items: flex-start;
+        justify-content: center;
+        min-width: 40vw;
+        padding: 0;
+    }
+
+    .projecten-img {
+        width: 75vw;
+        object-fit: cover;
+    }
+
+    footer h1 {
+        font-size: 2rem;
+    }
+}
