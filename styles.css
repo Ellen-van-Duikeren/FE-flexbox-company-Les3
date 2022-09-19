@@ -1,17 +1,8 @@
-/*flex-basis inner-container nog aanpassen aan 1200px;*/
-/*nog toevoegen jump links vanuit navigatie*/
+/*Bonus:
+De gradients zijn in het bonusontwerp voorzien van een doorzichtige textuur. Deze kun je als pseudo-element via een background-image invoegen. Let op dat de textuur onder de content moet komen te staan. Lees hier meer over de background-image property.
+Zorg ervoor dat er een transitie ontstaat wanneer de gebruiker over de project-links hovert (EdHub Hfst. 9.5):
+bonus-moving-link*/
 
-.boxrood {
-    border: 5px red solid;
-}
-
-.boxblauw {
-    border: 5px blue solid;
-}
-
-.boxgroen {
-    border: 5px green solid;
-}
 
 /*////////////////////////
     Table of Contents
@@ -31,15 +22,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
     /*background-color: lightblue;*/
 }
 
-
 /* ------------------------------- 2. Typography ----------------------------------- */
-
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
@@ -68,14 +57,11 @@ h1, h2, h3 {
     /*    Grijs #7A7A7A (voor de service-tegel tekst);*/
 }
 
-/*voorbeeld gebruiken var: body { background-color: var(--blue); }*/
-
 .outer-container {
     display: flex;
     flex-direction: row;
     width: 100vw;
     justify-content: center;
-
 }
 
 .inner-container {
@@ -84,14 +70,12 @@ h1, h2, h3 {
     flex-basis: 70%;
 }
 
-
 /* --------------- 3.2 Other --------------------------- */
 
 /* ------------------------------- 4. Areas ---------------------------------------- */
 
 /* --------------- 4.1 Header ------------------------- */
 header {
-    background: rgb(75, 73, 232);
     background: linear-gradient(90deg, rgba(75, 73, 232, 1) 0%, rgba(87, 34, 205, 1) 100%);
     color: white;
     position: relative;
@@ -155,40 +139,57 @@ header a {
     text-decoration: none;
 }
 
-/*.edger {*/
-/*    display: flex;*/
-/*    height: 50px;*/
-/*    width: 100%;*/
-/*    background: linear-gradient(to left, var(--paars), var(--blauw));*/
-/*    border: 3px solid green;*/
-/*    position: relative;*/
-/*}*/
-/*.edger::after {*/
-/*    content: "";*/
-/*    display: block;*/
-/*    width: 0;*/
-/*    height: 0;*/
-/*    border-right: 100vw solid transparent;*/
-/*    border-bottom: 50px solid white;*/
-/*}*/
+/*#triangle: bonus opdracht*/
+#triangle {
+    /*eerst een rehcthoek maken met color gradient*/
+    width: 100vw;
+    height: 50px;
+    background: linear-gradient(to left, var(--paars), var(--blauw));
+}
+
+#triangle::after {
+    /*en dan met een witte driehoek hieroverheen zodat er een gradient driehoek overblijft*/
+    content: " ";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-right: 100vw solid transparent;
+    border-bottom: 50px solid white;
+}
 
 /* --------------- 4.2 Introduction ------------------- */
 .introduction {
-    background-color: var(--lichtgrijs);
+    background-color: white;
     color: var(--paars);
     text-align: center;
-    padding: 30px 0;
+    padding: 30px 0 80px 0;
+    position: relative;
+}
+
+/*bonus: zwevende woorden*/
+.introduction::before {
+    content: "hello";
+    display: inline-block;
+    color: var(--lichtpaars);
+    font-size: 20rem;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    left: 18vw;
+    opacity: 50%;
 }
 
 .introduction h2 {
     padding: 10px;
     font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.8px;
 }
 
 .introduction p {
     padding-top: 40px;
     color: var(--zwart);
-    font-size: 0.8em;
+    font-size: 0.7em;
 }
 
 .introduction span {
@@ -196,12 +197,59 @@ header a {
     font-weight: 700;
 }
 
+/*#triangle: bonus opdracht*/
+#triangle-introduction {
+    /*eerst een rehcthoek maken met color gradient*/
+    width: 100vw;
+    height: 50px;
+    background: var(--lichtgrijs);
+}
+
+#triangle-introduction::after {
+    /*en dan met een witte driehoek hieroverheen zodat er een gradient driehoek overblijft*/
+    content: " ";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 100vw solid transparent;
+    border-top: 50px solid white;
+}
+
 /* --------------- 4.3 Projecten ------------------- */
 
 .projecten {
-    padding-top: 40px;
+    padding: 180px 0 80px 0;
+    background-color: var(--lichtgrijs);
+    position: relative;
 }
 
+/*bonus: zwevende woorden*/
+.projecten::before {
+    content: "work";
+    display: inline-block;
+    color: white;
+    font-size: 20rem;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    left: 18vw;
+    opacity: 30%;
+}
+
+/*bonus: squiggle line in pseudo element*/
+.projecten h3::after {
+    content: "";
+    display: block;
+    background: url("assets/squiggle_line.svg");
+    /*background-position: center;*/
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width:  75px;
+    height: 5px;
+}
+
+/* geen gebruik gemaakt van omg-wrapper / span, want had het al op een andere manier opgelost*/
 .projecten-img {
     min-width: 300px;
     object-fit: cover;
@@ -219,7 +267,7 @@ header a {
     padding: 40px;
 }
 
-.the-other-way-around {
+.projecten-outer-container:nth-child(even) {
     flex-direction: row-reverse;
 }
 
@@ -236,6 +284,8 @@ header a {
 
 .projecten h3 {
     font-size: 1.7rem;
+    position: relative;
+    padding-bottom: 60px;
 }
 
 .projecten p {
@@ -250,22 +300,53 @@ header a {
     letter-spacing: 0.1rem;
 }
 
+/*#triangle: bonus opdracht*/
+#triangle-projects {
+    /*eerst een rehcthoek maken met color gradient*/
+    width: 100vw;
+    height: 50px;
+    background: white;
+}
+
+#triangle-projects::after {
+    /*en dan met een witte driehoek hieroverheen zodat er een gradient driehoek overblijft*/
+    content: " ";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 100vw solid transparent;
+    border-top: 50px solid var(--lichtgrijs);
+}
+
 /* --------------- 4.4 Services ------------------- */
+/*ik heb de boxen laten flex wrappen ipv meegroeien of verkleinen*/
 .services {
-    background-color: whitesmoke;
+    background-color: white;
     color: var(--paars);
     gap: 30px;
     flex-wrap: wrap;
-    padding: 40px 20px;
-    /*flex-grow: 0;*/
-    /*flex-shrink: 0;*/
+    padding: 120px 20px;
+    position: relative;
+}
+
+/*bonus: zwevende woorden*/
+.services::before {
+    content: "services";
+    display: inline-block;
+    color: var(--lichtpaars);
+    font-size: 10rem;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    left: 18vw;
+    opacity: 30%;
 }
 
 .services-containers {
     border: 1px solid var(--paars);
     align-items: flex-start;
     padding: 20px;
-    box-shadow: 2px 4px 4px var(--lichtgrijs);
+    box-shadow: 2px 4px 8px lightpink;
     flex-basis: 250px;
 }
 
@@ -276,14 +357,32 @@ header a {
 
 .services p {
     padding-top: 10px;
-    color: var(--zwart);
+    color: var(--grijs);
     font-size: 0.7rem;
+}
+
+/*#triangle: bonus opdracht*/
+#triangle-services {
+    /*eerst een rehcthoek maken met color gradient*/
+    width: 100vw;
+    height: 50px;
+    background: linear-gradient(90deg, rgba(75, 73, 232, 1) 0%, rgba(87, 34, 205, 1) 100%);;
+}
+
+#triangle-services::after {
+    /*en dan met een witte driehoek hieroverheen zodat er een gradient driehoek overblijft*/
+    content: " ";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 100vw solid transparent;
+    border-top: 50px solid white;
 }
 
 
 /* --------------- 4.5 Footer ------------------- */
 footer {
-    background-color: var(--blauw);
+    background: linear-gradient(90deg, rgba(75, 73, 232, 1) 0%, rgba(87, 34, 205, 1) 100%);
     color: var(--lichtgrijs);
     padding: 30px 0 0 0;
     align-items: center;
@@ -313,11 +412,14 @@ form {
 }
 
 #name, #email, #message {
-    font-size: 0.7rem;
     padding: 16px;
     width: 50vw;
     border: 0px solid transparent;
     border-radius: 2px;
+}
+
+::placeholder {
+    font-size: 0.7rem;
 }
 
 form textarea {
@@ -358,9 +460,16 @@ form textarea {
 /* ------------------------------- 5. Media Queries -------------------------------- */
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
     body {
         font-size: 12px;
+    }
+
+    .introduction::before,
+    .projecten::before {
+        font-size: 10rem;
+        top: 10vw;
+        left: 18vw;
     }
 
     .projecten-outer-container {
@@ -374,12 +483,16 @@ form textarea {
         padding: 0;
     }
 
-    .projecten-img {
+   .projecten-img {
         width: 75vw;
         object-fit: cover;
     }
 
     footer h1 {
         font-size: 2rem;
+    }
+
+    .projecten h3 {
+        font-size: 1.2rem;
     }
 }
