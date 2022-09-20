@@ -16,7 +16,7 @@ bonus-moving-link*/
         4.2 Introduction
         etc.
     5. Media Queries
-////////////////////////*/
+/////////////////////////*/
 
 /* ------------------------------- 1. Global Styles -------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;700&display=swap');
@@ -176,7 +176,7 @@ header a {
     position: absolute;
     top: 0;
     left: 18vw;
-    opacity: 50%;
+    opacity: 30%;
 }
 
 .introduction h2 {
